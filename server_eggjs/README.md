@@ -1,9 +1,3 @@
-<!--
- * @Author: sam.li
- * @Date: 2020-10-22 17:52:02
- * @LastEditors: sam.li
- * @LastEditTime: 2020-10-22 18:11:39
--->
 # server_eggjs
 
 server
@@ -37,6 +31,3 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
-
-## sequelize的使用
-1. https://segmentfault.com/a/1190000011583608
