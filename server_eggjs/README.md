@@ -1,3 +1,9 @@
+<!--
+ * @Author: sam.li
+ * @Date: 2020-10-25 04:28:55
+ * @LastEditors: sam.li
+ * @LastEditTime: 2020-10-25 04:50:42
+-->
 # server_eggjs
 
 server
@@ -31,3 +37,9 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+### server
+```
+# redis 
+redis-server
+```
