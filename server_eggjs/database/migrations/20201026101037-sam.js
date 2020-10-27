@@ -2,14 +2,14 @@
  * @Author: sam.li
  * @Date: 2020-06-28 11:09:41
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-25 04:55:24
+ * @LastEditTime: 2020-10-26 18:11:50
  */
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
 const folderPath = path.join('./', 'app/schema');
-const uuidv1 = require('uuid/v1');
+const uuidv1 = require('uuid').v1;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {

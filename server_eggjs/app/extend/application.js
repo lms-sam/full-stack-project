@@ -103,6 +103,21 @@ module.exports = {
     }
   },
 
+  // 返回体：成功
+  sucess(data, status) {
+    this.ctx.body = { code: this.ctx.SUCCESS_CODE, data };
+    this.ctx.status = status || 200;
+  },
+  // 返回体：失败
+  fail(code, message) {
+    this.ctx.body = { code, message, data: {} };
+    this.ctx.status = 200;
+  },
+  // 找不到
+  notFound(msg) {
+    msg = msg || 'not found';
+    this.ctx.throw(404, msg);
+  },
   // 任务处理
   registerTaskHandler(type, handler) {
     if (!type) {
