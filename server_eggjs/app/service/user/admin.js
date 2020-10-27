@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-26 21:40:40
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-27 09:20:08
+ * @LastEditTime: 2020-10-27 15:18:37
  */
 'use strict';
 
@@ -21,14 +21,13 @@ class AdminService extends Service {
      * @param {string} password - 管理员密码
      * @return {object|null} - 查找结果
      */
-    async getAdminByLogin(userName, password, uuid) {
+    async getAdminByLogin(userName, password, ) {
+        console.log(userName, md5(password))
         // return await this.app.mysql.get('admin', { userName, password: md5(password) });
-        return await this.app.model.Admin.findOnd({
-            where: {
-                userName,
-                password,
-                uuid
-            }
+        return await this.app.model.Admin.has({
+            userName,
+            password: md5(password),
+            attributes: {}
         })
     }
 
@@ -42,7 +41,7 @@ class AdminService extends Service {
         const { userUuid, userName, oldPassword, newPassword } = params;
         const modifyInfo = app.getModifyInfo(userUuid, userName);
 
-        return await app.model.User.Admin.savePasswordModify({
+        return await app.model.Admin.savePasswordModify({
             uuid: userUuid,
             oldPassword: md5(oldPassword),
             password: md5(newPassword),

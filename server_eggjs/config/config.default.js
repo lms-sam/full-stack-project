@@ -2,6 +2,7 @@
 
 'use strict';
 const SERVER_HOST = '127.0.0.1';
+const fecha = require('fecha');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */

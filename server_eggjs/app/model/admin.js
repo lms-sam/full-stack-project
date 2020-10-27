@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:46:56
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-25 04:47:20
+ * @LastEditTime: 2020-10-27 15:13:08
  */
 'use strict';
 
@@ -10,6 +10,22 @@ module.exports = app => {
   const { model, checkUpdate } = app;
   const adminSchema = require('../schema/admin.js')(app);
   const Admin = model.define('admin', adminSchema);
+
+  /**
+   * 查找管理员
+   * @param {object} { uuid, attributes } - 条件
+   * @return {object|null} - 查找结果
+   */
+  Admin.has = async ({ userName, password, attributes }) => {
+    console.log(userName, password, attributes)
+    return await Admin.findOne({
+      attributes,
+      where: { 
+        userName,
+        password
+      },
+    });
+  };
 
   /**
    * 查找管理员

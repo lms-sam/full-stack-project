@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 22:00:20
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-25 22:00:44
+ * @LastEditTime: 2020-10-27 13:24:03
  */
 'use strict';
 
@@ -83,5 +83,20 @@ module.exports = {
     verifyFail(code, message) {
         this.body = { code, message };
         this.status = code;
+    },
+    // 返回体：成功
+    success(data, status) {
+        this.body = { code: this.SUCCESS_CODE, data };
+        this.status = status || 200;
+    },
+    // 返回体：失败
+    fail(code, message) {
+        this.body = { code, message, data: {} };
+        this.status = 200;
+    },
+    // 找不到
+    notFound(msg) {
+        msg = msg || 'not found';
+        this.throw(404, msg);
     },
 };

@@ -1,14 +1,14 @@
 /*
  * @Date: 2020-06-28 11:09:41
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-25 04:47:56
+ * @LastEditTime: 2020-10-27 16:05:02
  */
 'use strict';
 
 module.exports = app => {
   app.beforeStart(async () => {
     const ctx = app.createAnonymousContext();
-    await app.model.sync({force: true});
+    await app.model.sync({force: false});
     // // 初始化延迟任务
     // app.initDelayTask();
 

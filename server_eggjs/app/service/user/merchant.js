@@ -17,13 +17,13 @@ class MerchantService extends Service {
    */
   async getMerchantByLogin(userName, password) {
     const { app } = this;
-    // return await this.app.mysql.get('merchant', { userName, password: md5(password) });
-    return await app.model.Merchant.findOne({
-        where: {
-            userName,
-            password
-        }
-    })
+    return await this.app.mysql.get('merchant', { userName, password: md5(password) });
+    // return await app.model.Merchant.findOne({
+    //     where: {
+    //         userName,
+    //         password
+    //     }
+    // })
   }
 
   /**
@@ -45,7 +45,7 @@ class MerchantService extends Service {
       enableStatus: true,
     };
 
-    return await app.model.User.Merchant.saveNew(merchant);
+    return await app.model.Merchant.saveNew(merchant);
   }
 
   /**
@@ -65,7 +65,7 @@ class MerchantService extends Service {
 
     merchant = { ...merchant, ...modifyInfo };
 
-    return await app.model.User.Merchant.saveModify(merchant);
+    return await app.model.Merchant.saveModify(merchant);
   }
 
   /**
@@ -78,7 +78,7 @@ class MerchantService extends Service {
     const { userUuid, userName, oldPassword, newPassword } = params;
     const modifyInfo = app.getModifyInfo(userUuid, userName);
 
-    return await app.model.User.Merchant.savePasswordModify({
+    return await app.model.Merchant.savePasswordModify({
       uuid: userUuid,
       oldPassword: md5(oldPassword),
       password: md5(newPassword),
@@ -93,7 +93,7 @@ class MerchantService extends Service {
    */
   async query(params = {}) {
     const { app } = this;
-    return await app.model.User.Merchant.query({
+    return await app.model.Merchant.query({
       ...params,
       attributes: [
         'uuid', 'version', 'createdTime', 'name', 'enableStatus',
