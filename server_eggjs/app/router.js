@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-30 14:12:09
+ * @LastEditTime: 2020-10-30 14:34:15
  */
 'use strict';
 
@@ -32,7 +32,7 @@ module.exports = app => {
   // 订货单
   router.post('/bill/order/query', goodsOrder.query);
 
-  //商品
+  // 商品
   router.post('/goods/saveNew', goods.saveNew);
   router.post('/goods/query', goods.query);
 
