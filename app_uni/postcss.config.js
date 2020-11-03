@@ -1,19 +1,26 @@
+/*
+ * @Author: sam.li
+ * @Date: 2020-10-30 14:40:55
+ * @LastEditors: sam.li
+ * @LastEditTime: 2020-11-02 16:06:08
+ */
 const path = require('path')
 module.exports = {
   parser: require('postcss-comment'),
   plugins: [
-    require('postcss-import')({
-      resolve (id, basedir, importOptions) {
-        if (id.startsWith('~@/')) {
-          return path.resolve(process.env.UNI_INPUT_DIR, id.substr(3))
-        } else if (id.startsWith('@/')) {
-          return path.resolve(process.env.UNI_INPUT_DIR, id.substr(2))
-        } else if (id.startsWith('/') && !id.startsWith('//')) {
-          return path.resolve(process.env.UNI_INPUT_DIR, id.substr(1))
-        }
-        return id
-      }
-    }),
+    require('postcss-import'),
+    // require('postcss-import')({
+    //   resolve (id, basedir, importOptions) {
+    //     if (id.startsWith('~@/')) {
+    //       return path.resolve(process.env.UNI_INPUT_DIR, id.substr(3))
+    //     } else if (id.startsWith('@/')) {
+    //       return path.resolve(process.env.UNI_INPUT_DIR, id.substr(2))
+    //     } else if (id.startsWith('/') && !id.startsWith('//')) {
+    //       return path.resolve(process.env.UNI_INPUT_DIR, id.substr(1))
+    //     }
+    //     return id
+    //   }
+    // }),
     require('autoprefixer')({
       remove: process.env.UNI_PLATFORM !== 'h5'
     }),

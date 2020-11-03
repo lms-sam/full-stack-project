@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-30 14:34:15
+ * @LastEditTime: 2020-11-02 17:15:56
  */
 'use strict';
 
@@ -20,7 +20,8 @@ module.exports = app => {
     goodsCategory,
     utils,
     freightPlan,
-    deliveryTimeType
+    deliveryTimeType,
+    weapp
   } = controller;
   router.get('/', controller.home.index);
 
@@ -76,5 +77,8 @@ module.exports = app => {
   router.post('/deliveryTimeType/saveNew', deliveryTimeType.saveNew);
   router.post('/deliveryTimeType/remove', deliveryTimeType.remove);
   router.post('/deliveryTimeType/saveModify', deliveryTimeType.saveModify);
+
+  // 微信小程序
+  router.post('/weapp/login', weapp.login);
   
 };

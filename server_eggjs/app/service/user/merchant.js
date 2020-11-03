@@ -110,7 +110,7 @@ class MerchantService extends Service {
    */
   async get(uuid) {
     const { app } = this;
-    return await app.model.User.Merchant.get({
+    return await app.model.Merchant.get({
       uuid,
       attributes: [
         'uuid', 'version', 'name', 'enableStatus', 'userName', 'servicePhone',

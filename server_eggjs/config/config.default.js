@@ -3,6 +3,7 @@
 'use strict';
 const SERVER_HOST = '127.0.0.1';
 const fecha = require('fecha');
+const isNumber = require('lodash/isNumber');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
