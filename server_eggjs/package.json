@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
     "egg-mysql": "^3.0.0",
     "egg-passport": "^2.1.1",
@@ -18,10 +19,12 @@
     "egg-socket.io": "^4.1.6",
     "egg-validate": "^2.0.2",
     "fecha": "^4.2.0",
+    "ffmetadata": "^1.6.0",
     "lodash": "^4.17.20",
     "md5": "^2.3.0",
     "mysql2": "2.0.2",
     "passport-local": "^1.0.0",
+    "request": "^2.88.2",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
@@ -40,7 +43,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-server_eggjs",
     "stop": "egg-scripts stop --title=egg-server-server_eggjs",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port 7001",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",

@@ -7,10 +7,10 @@
 'use strict';
 
 module.exports = {
-  SUCCESS_CODE: 0, // 成功
-  NO_LOGIN_CODE: 100, // 未登录
-  UNIQUE_CODE: 200, // 唯一性冲突
-  ERROR_CODE: 500, // 失败
+    SUCCESS_CODE: 0, // 成功
+    NO_LOGIN_CODE: 100, // 未登录
+    UNIQUE_CODE: 200, // 唯一性冲突
+    ERROR_CODE: 500, // 失败
 
     // 获取token
     getAccessToken() {
@@ -23,7 +23,7 @@ module.exports = {
 
         // 如果需要得到精确的结果，需要自己另加额外的控制标志位
         if (decodeURI(name) === name) {
-        name = encodeURI(name);
+            name = encodeURI(name);
         }
 
         const token = app.jwt.sign(data, app.config.jwt.secret, { expiresIn: '12h' });
@@ -49,27 +49,27 @@ module.exports = {
         const orgUuid = this.cookies.get('orgUuid', { signed: false });
         const token = this.getAccessToken(this);
         const verifyResult = await new Promise(resolve => {
-        app.jwt.verify(token, app.config.jwt.secret, (err, decoded) => {
-            if (err) {
-            if (err.name === 'TokenExpiredError' && userUuid) {
-                this.setToken({ name, userUuid, userName, userType, orgUuid }); // 刷新token
-                resolve({ verify: true, message: { userUuid } });
-            } else {
-                resolve({ verify: false, message: err.message });
-            }
-            } else {
-            resolve({ verify: true, message: decoded });
-            }
-        });
+            app.jwt.verify(token, app.config.jwt.secret, (err, decoded) => {
+                if (err) {
+                    if (err.name === 'TokenExpiredError' && userUuid) {
+                        this.setToken({ name, userUuid, userName, userType, orgUuid }); // 刷新token
+                        resolve({ verify: true, message: { userUuid } });
+                    } else {
+                        resolve({ verify: false, message: err.message });
+                    }
+                } else {
+                    resolve({ verify: true, message: decoded });
+                }
+            });
         });
 
         if (!verifyResult.verify) {
-        this.verifyFail(401, verifyResult.message);
-        return false;
+            this.verifyFail(401, verifyResult.message);
+            return false;
         }
         if (userUuid !== verifyResult.message.userUuid) {
-        this.verifyFail(401, '用户 UUID 与 Token 不一致');
-        return false;
+            this.verifyFail(401, '用户 UUID 与 Token 不一致');
+            return false;
         }
         this.request.body.userUuid = userUuid;
         this.request.body.userName = userName;

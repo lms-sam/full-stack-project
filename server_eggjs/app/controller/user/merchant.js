@@ -8,61 +8,61 @@ const { Controller } = require('egg');
  * @author ruiyong-lee
  */
 class UserMerchantController extends Controller {
-  /**
+    /**
    * 新增商家
    */
-  async saveNew() {
-    const { ctx } = this;
+    async saveNew() {
+        const { ctx } = this;
 
-    try {
-      const rule = {
-        merchant: 'object',
-      };
-      ctx.validate(rule);
-      const uuid = await ctx.service.user.merchant.saveNew(ctx.request.body);
-      ctx.success(uuid);
-    } catch (err) {
-      const { fields = {}, name } = err;
+        try {
+            const rule = {
+                merchant: 'object',
+            };
+            ctx.validate(rule);
+            const uuid = await ctx.service.user.merchant.saveNew(ctx.request.body);
+            ctx.success(uuid);
+        } catch (err) {
+            const { fields = {}, name } = err;
 
-      if (name === 'SequelizeUniqueConstraintError') {
-        ctx.fail(ctx.UNIQUE_CODE, `账号：${fields.userName} 的商家已存在`);
-      } else {
-        throw new Error(err);
-      }
+            if (name === 'SequelizeUniqueConstraintError') {
+                ctx.fail(ctx.UNIQUE_CODE, `账号：${fields.userName} 的商家已存在`);
+            } else {
+                throw new Error(err);
+            }
+        }
     }
-  }
 
-  /**
+    /**
    * 修改商家
    */
-  async saveModify() {
-    const { ctx } = this;
-    const rule = {
-      merchant: 'object',
-    };
-    ctx.validate(rule);
-    const uuid = await ctx.service.user.merchant.saveModify(ctx.request.body);
-    ctx.success(uuid);
-  }
+    async saveModify() {
+        const { ctx } = this;
+        const rule = {
+            merchant: 'object',
+        };
+        ctx.validate(rule);
+        const uuid = await ctx.service.user.merchant.saveModify(ctx.request.body);
+        ctx.success(uuid);
+    }
 
-  /**
+    /**
    * 获取商家分页列表
    */
-  async query() {
-    const { ctx } = this;
-    const merchantData = await ctx.service.user.merchant.query(ctx.request.body);
-    ctx.success(merchantData);
-  }
+    async query() {
+        const { ctx } = this;
+        const merchantData = await ctx.service.user.merchant.query(ctx.request.body);
+        ctx.success(merchantData);
+    }
 
-  /**
+    /**
    * 根据uuid获取商家
    */
-  async get() {
-    const { ctx } = this;
-    const { uuid } = ctx.query;
-    const merchant = await ctx.service.user.merchant.get(uuid);
-    ctx.success(merchant);
-  }
+    async get() {
+        const { ctx } = this;
+        const { uuid } = ctx.query;
+        const merchant = await ctx.service.user.merchant.get(uuid);
+        ctx.success(merchant);
+    }
 }
 
 module.exports = UserMerchantController;

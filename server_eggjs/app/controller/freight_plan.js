@@ -2,12 +2,14 @@
  * @Author: sam.li
  * @Date: 2020-10-30 14:05:06
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-30 14:06:18
+ * @LastEditTime: 2020-11-25 16:48:46
  */
 
 'use strict';
 
-const { Controller } = require('egg');
+const {
+  Controller
+} = require('egg');
 
 /**
  * Controller - 运费方案
@@ -19,7 +21,9 @@ class FreightPlanController extends Controller {
    * 新增运费方案
    */
   async saveNew() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const rule = {
       freightPlan: 'object',
     };
@@ -32,7 +36,9 @@ class FreightPlanController extends Controller {
    * 修改运费方案
    */
   async saveModify() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const rule = {
       freightPlan: 'object',
     };
@@ -45,7 +51,9 @@ class FreightPlanController extends Controller {
    * 删除运费方案
    */
   async remove() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const uuid = await ctx.service.freightPlan.remove(ctx.request.body);
     ctx.success(uuid);
   }
@@ -54,7 +62,9 @@ class FreightPlanController extends Controller {
    * 获取运费方案分页列表
    */
   async query() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const freightPlanData = await ctx.service.freightPlan.query(ctx.request.body);
     ctx.success(freightPlanData);
   }
@@ -63,7 +73,9 @@ class FreightPlanController extends Controller {
    * 根据uuid获取运费方案
    */
   async get() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const freightPlan = await ctx.service.freightPlan.get(ctx.request.body);
     ctx.success(freightPlan);
   }
@@ -72,7 +84,9 @@ class FreightPlanController extends Controller {
    * 设置默认运费方案
    */
   async setDefault() {
-    const { ctx } = this;
+    const {
+      ctx
+    } = this;
     const uuid = await ctx.service.freightPlan.setDefault(ctx.request.body);
 
     ctx.success(uuid);

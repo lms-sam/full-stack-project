@@ -14,9 +14,9 @@ class AdminCtroller extends Controller {
         let user;
         // 查询数据库有没有当前用户
         if (loginType === 'admin') {
-            user = await ctx.service.user.admin.getAdminByLogin(userName, password, uuid)
+            user = await ctx.service.user.admin.getAdminByLogin(userName, password, uuid);
         } else {
-            user = await ctx.service.user.merchant.getMerchantByLogin(userName, password)
+            user = await ctx.service.user.merchant.getMerchantByLogin(userName, password);
         }
         // 返回jwt
         if (!app._.isEmpty()) {
@@ -31,21 +31,21 @@ class AdminCtroller extends Controller {
         const { ctx } = this;
         const { userType } = ctx.request.body;
         const rule = {
-          userUuid: 'string',
-          oldPassword: 'string',
-          newPassword: 'string',
+            userUuid: 'string',
+            oldPassword: 'string',
+            newPassword: 'string',
         };
-    
+
         ctx.validate(rule);
-    
+
         if (userType === 'admin') {
-          // 根据userName获取管理员
-          await ctx.service.user.admin.savePasswordModify(ctx.request.body);
+            // 根据userName获取管理员
+            await ctx.service.user.admin.savePasswordModify(ctx.request.body);
         } else {
-          // 根据userName获取商家
-          await ctx.service.user.merchant.savePasswordModify(ctx.request.body);
+            // 根据userName获取商家
+            await ctx.service.user.merchant.savePasswordModify(ctx.request.body);
         }
-    
+
         this.logout();
     }
     logout() {

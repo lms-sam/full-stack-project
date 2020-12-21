@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-27 09:37:57
+ * @LastEditTime: 2020-11-25 15:43:35
  */
 'use strict';
 
@@ -45,4 +45,9 @@ exports.passport = {
 exports.io = {
   enable: true,
   package: 'egg-socket.io',
+};
+
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
 };

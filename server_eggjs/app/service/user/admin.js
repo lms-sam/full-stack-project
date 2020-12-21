@@ -21,14 +21,14 @@ class AdminService extends Service {
      * @param {string} password - 管理员密码
      * @return {object|null} - 查找结果
      */
-    async getAdminByLogin(userName, password, ) {
-        console.log(userName, md5(password))
+    async getAdminByLogin(userName, password) {
+        console.log(userName, md5(password));
         // return await this.app.mysql.get('admin', { userName, password: md5(password) });
         return await this.app.model.Admin.has({
             userName,
             password: md5(password),
-            attributes: {}
-        })
+            attributes: {},
+        });
     }
 
     /**

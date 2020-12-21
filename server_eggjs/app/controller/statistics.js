@@ -14,25 +14,25 @@ const { Controller } = require('egg');
  * @author ruiyong-lee
  */
 class StatisticsController extends Controller {
-  /**
+    /**
    * 获取今日订单数量统计
    */
-  async getForDay() {
-    const { ctx } = this;
-    const result = await ctx.service.statistics.getForDay(ctx.request.body);
+    async getForDay() {
+        const { ctx } = this;
+        const result = await ctx.service.statistics.getForDay(ctx.request.body);
 
-    ctx.success(result);
-  }
+        ctx.success(result);
+    }
 
-  /**
+    /**
    * 获取近七天订单统计
    */
-  async getForWeek() {
-    const { ctx } = this;
-    const result = await ctx.service.statistics.getForWeek(ctx.request.body);
+    async getForWeek() {
+        const { ctx } = this;
+        const result = await ctx.service.statistics.getForWeek(ctx.request.body);
 
-    ctx.success(result);
-  }
+        ctx.success(result);
+    }
 }
 
 module.exports = StatisticsController;
