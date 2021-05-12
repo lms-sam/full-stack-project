@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-30 11:59:25
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-12 12:40:14
+ * @LastEditTime: 2021-05-12 14:49:31
  */
 'use strict';
 
@@ -64,7 +64,6 @@ class GoodsController extends Controller {
     async query() {
         const { ctx } = this;
         const goodsData = await ctx.service.goods.query(ctx.request.body);
-        console.log(ctx.request.body);
         ctx.success(goodsData);
     }
 
