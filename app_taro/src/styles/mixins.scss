@@ -1,0 +1,4 @@
+@mixin bg($bgUrl) {
+    background: url($bgUrl) no-repeat top left;
+    background-size: 100% 100%;
+}

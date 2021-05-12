@@ -1,0 +1,77 @@
+.navBar-container {
+  z-index: 1000;
+  width: 100vw;
+  transition: all 0.2s linear;
+  position: relative;
+  padding-top: 44px;
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+  height: 60px;
+  // display: flex;
+  // align-items: center;
+  background: #fff;
+  padding-bottom: 6px;
+  box-sizing: content-box;
+
+  &.transparency {
+    background: transparent;
+
+    .back-btn {
+      background-color: rgba(0, 0, 0, 0.4);
+
+      .iconfontBiz {
+        color: #fff;
+        font-size: 30px;
+      }
+    }
+
+    .navBar-title {
+      color: #fff;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .back-btn {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    left: 30px;
+    text-align: center;
+
+    .iconfontBiz {
+      color: #000;
+      font-size: 40px;
+    }
+  }
+
+  .navBar-title {
+    text-align: center;
+    font-size: 34px;
+    color: #000;
+    font-weight: 500;
+    flex: 1;
+    line-height: 64px;
+  }
+
+  .right-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+    height: 60px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    .iconImg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

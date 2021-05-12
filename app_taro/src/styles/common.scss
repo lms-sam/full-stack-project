@@ -1,0 +1,91 @@
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 32px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.flex-layout {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+}
+
+.flex-colunm {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-justify-content: flex-start;
+}
+
+.text-fill {
+    line-height: 0;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+
+.app-wrap {
+    // position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app-container {
+    flex: 1;
+    overflow: hidden;
+    background-color: $CONTENT_BACKGROUND_COLOR;
+}
+
+.app-scrollContainer {
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+@for $i from 1 through 8 {
+    .ml-#{$i*2} {
+        margin-left: (2px * $i) !important;
+    }
+}
+
+@for $i from 1 through 8 {
+    .mr-#{$i*2} {
+        margin-right: (2px * $i) !important;
+    }
+}
+
+@for $i from 1 through 8 {
+    .mb-#{$i*10} {
+        margin-bottom: (10px * $i) !important;
+    }
+}
