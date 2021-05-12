@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-11-02 17:10:35
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-12 16:07:41
+ * @LastEditTime: 2021-05-12 17:09:26
  */
 'use strict';
 
@@ -11,7 +11,8 @@ const Controller = require('egg').Controller;
 class WeappController extends Controller {
     async login() { // 静默登录-openid、授权手机登录
         const { ctx, app } = this;
-        const { orgUuid, code } = ctx.request.body;
+        const { code } = ctx.request.body;
+        const orgUuid = ctx.get('orgUuid');
         const sessionid = ctx.helper.uuidv1();
         // 根据orgUuid获取商家
         const merchant = await ctx.service.user.merchant.get(orgUuid);

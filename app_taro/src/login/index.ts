@@ -2,8 +2,9 @@
  * @Author: sam.li
  * @Date: 2021-05-08 16:28:14
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-08 17:48:02
+ * @LastEditTime: 2021-05-12 17:17:03
  */
+import Taro from '@tarojs/taro'
 import {
     SUCESS_STATE
 } from '@/common/constants'
@@ -14,7 +15,7 @@ import {
 import globalData from '@/common/globalData'
 import api from '@/common/api'
 
-let loginPromise: any = null;
+let loginPromise: any = null
 const silentLogin = (jump = true, updateUserInfo = false) => {
     updateUserInfo && (loginPromise = null); // 假如更新用户信息，清除promise
     loginPromise = loginPromise || new Promise((resolve, reject) => {
@@ -31,22 +32,29 @@ const silentLogin = (jump = true, updateUserInfo = false) => {
             fetchSilentLogin(resolve, reject, jump)
         }
         
-    });
-    return loginPromise;
+    })
+    return loginPromise
 }
 
 // 登录获取有效用户token
 const fetchSilentLogin = (resolve, reject, jump) => {
-    console.log('login');
-    api.user.login().then(res=>{
-        console.log(res);
-    });
-    // TODO:登录 setToken
+    Taro.login().then(res => {
+        api.user.login({
+            code: res.code
+        }).then(res=>{
+            console.log(res);
+            if (res.code === 0) {
+                setToken(res.data);
+                fetchUserInfo(resolve, reject, jump);
+            }
+        });
+    })
 }
 
 // 获取用户信息
 const fetchUserInfo = (resolve, reject, jump = false) => {
     // TODO: 获取用户信息 globalDataDel.set('userInfo')
+    resolve();
 }
 
 export {

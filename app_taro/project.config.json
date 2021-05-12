@@ -1,8 +1,8 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "taro-template2.0",
+  "projectname": "mall-app",
   "description": "taro2.0 template",
-  "appid": "wx1f29adb1b3afd8b0",
+  "appid": "wx0eb2601a9e3d9c81",
   "setting": {
     "urlCheck": true,
     "es6": false,

@@ -1,5 +1,11 @@
+/*
+ * @Author: sam.li
+ * @Date: 2021-05-08 16:00:48
+ * @LastEditors: sam.li
+ * @LastEditTime: 2021-05-12 16:46:57
+ */
 var InterceptorManger = require('./interceptorManger');
-var dispatchRequest = require('./dispatchRequest');
+var dispatchRequest = require('./dispatchRequest').default;
 var utils = require('./utils');
 /**
  * @class Wxios

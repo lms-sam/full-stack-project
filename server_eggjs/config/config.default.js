@@ -27,6 +27,7 @@ module.exports = appInfo => {
       allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
       // 下面这条加上才能共享跨域session，同时前端ajax请求也要加上响应的参数
       credentials: true, 
+      exposeHeaders: 'app-id'
     },
     // 小程序只能存storage，关闭csrf
     security: {

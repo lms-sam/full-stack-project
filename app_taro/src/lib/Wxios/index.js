@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2021-05-08 16:00:48
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-08 18:00:13
+ * @LastEditTime: 2021-05-12 16:46:33
  */
 var utils = require('./utils');
 var Wxios = require('./Wxios');
@@ -13,7 +13,6 @@ function createInstance(defaultConfig) {
     var instance = utils.bind(Wxios.prototype.request, context);
     utils.extend(instance, Wxios.prototype, context);
     utils.extend(instance, context);
-    console.dir(instance);
     return instance;
 }
 
