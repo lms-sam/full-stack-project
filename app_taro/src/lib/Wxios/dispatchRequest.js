@@ -9,7 +9,6 @@ var utils = require('./utils');
 import Taro from '@tarojs/taro'
 
 export default function dispatchRequest(config) {
-    console.error(config);
     // 合并处理 baseURL
     if (config.baseURL && !utils.isAbsoluteURL(config.url)) {
         config.url = utils.combURL(config.baseURL, config.url);
