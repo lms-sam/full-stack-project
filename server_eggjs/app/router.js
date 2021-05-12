@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-12 12:42:05
+ * @LastEditTime: 2021-05-12 15:17:56
  */
 'use strict';
 
@@ -37,6 +37,8 @@ module.exports = app => {
     // 商品
     router.post('/goods/saveNew', goods.saveNew);
     router.post('/goods/query', goods.query);
+    router.post('/goods/down', goods.down);
+    router.post('/goods/up', goods.up);
 
     // 商品类别
     router.post('/goodsCategory/query', goodsCategory.query);

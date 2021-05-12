@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-11-02 17:10:35
  * @LastEditors: sam.li
- * @LastEditTime: 2020-11-03 10:46:18
+ * @LastEditTime: 2021-05-12 16:07:41
  */
 'use strict';
 
@@ -26,9 +26,11 @@ class WeappController extends Controller {
         const { openid: openId, session_key } = weappInfo.data || {};
         if (openId) {
             const result = JSON.stringify({ openId });
+            const ac_token_result = JSON.stringify({ session_key });
             // 保存openId和session_key到redis
+
             await app.redis.get('default').setex(sessionid, 3600 * 24, result);
-            await app.redis.get('default').setex(sessionid, 3600 * 24, result);
+            await app.redis.get('default').setex(orgUuid + '_wx_access_token', 3600 * 24, ac_token_result);
         } else {
             return ctx.fail(ctx.ERROR_CODE, weappInfo.data.errmsg);
         }
