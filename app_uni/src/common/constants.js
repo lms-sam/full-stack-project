@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-11-02 16:15:08
  * @LastEditors: sam.li
- * @LastEditTime: 2020-11-02 17:03:53
+ * @LastEditTime: 2021-05-12 11:51:25
  */
 // 常量
 
@@ -13,7 +13,7 @@ export default {
   NICK_NAME: 'nickName',
   AVATAR_URL: 'avatarUrl',
   SESSION: '3rd_session',
-  MERCHANT_UUID: '49242ce0-182b-11eb-95a2-a389e9ead92e', // 根据不同商家手动配置
+  MERCHANT_UUID: 'c6de19a0-b2d3-11eb-a723-0785779d53ec', // 根据不同商家手动配置
 
   // 搜索
   HISTORY_KEYWORDS: 'history_keywords',

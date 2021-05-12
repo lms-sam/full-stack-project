@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2020-11-25 15:41:33
+ * @LastEditTime: 2021-05-12 12:42:05
  */
 'use strict';
 
@@ -83,6 +83,6 @@ module.exports = app => {
     router.post('/weapp/login', weapp.login);
 
     // 微信小程序
-    router.get('/music', music.index);
+    // router.get('/music', music.index);
 
 };

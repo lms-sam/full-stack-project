@@ -2,7 +2,7 @@
  * @Author: sam.li
  * @Date: 2020-10-25 04:28:55
  * @LastEditors: sam.li
- * @LastEditTime: 2020-10-25 04:50:42
+ * @LastEditTime: 2021-02-06 15:15:41
 -->
 # server_eggjs
 
@@ -42,4 +42,7 @@ $ npm stop
 ```
 # redis 
 redis-server
+
+# mysql
+mysql.server start
 ```
