@@ -2,10 +2,10 @@
  * @Author: sam.li
  * @Date: 2021-05-08 09:18:19
  * @LastEditors: sam.li
- * @LastEditTime: 2021-05-08 17:22:21
+ * @LastEditTime: 2021-05-12 17:29:05
  */
 import Taro, { Component, Config } from '@tarojs/taro'
-import Index from './pages/index'
+import Index from './pages/index/index'
 
 import './app.scss'
 
@@ -35,9 +35,10 @@ class App extends Component {
 	 */
 	config: Config = {
 		pages: [
+			'pages/goods/views/menu/index',
+			'pages/home/views/index/index',
 			'pages/index/index',
 			'pages/webView/index',
-			'pages/home/views/index/index',
 		],
 		window: {
 			backgroundTextStyle: 'light',

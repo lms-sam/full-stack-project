@@ -3,7 +3,7 @@
  * @LastEditors: sam.li
  * @email: minshen_li@163.com
  * @Date: 2021-05-07 02:23:44
- * @LastEditTime: 2021-05-08 14:40:10
+ * @LastEditTime: 2021-05-12 17:50:49
  * @motto: Still water run deep
  * @Description: Modify here please
  * @FilePath: \weap-taro\src\pages\home\views\index\index.tsx
@@ -14,18 +14,22 @@ import {
 } from '@tarojs/components'
 import {
     useState
-} from 'react'
+} from '@tarojs/taro' // 3.0 react
 
 import NavBar from '@/components/NavBar'
 
 import './index.scss'
 export default function HomeIndexPage () {
     return (
-        <View className="page-wrapper">
+        <View className="app-wrap">
             <NavBar/>
-            <View className="page-content">
-                <ScrollView className="page-scroll-view">
-                </ScrollView>  
+            <View className="app-container">
+                <ScrollView
+                    className="app-scrollContainer"
+                    scrollY={true}
+                    scrollWithAnimation={true}
+                >
+                </ScrollView>
             </View>
         </View>
     )    

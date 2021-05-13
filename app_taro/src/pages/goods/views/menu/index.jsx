@@ -3,7 +3,7 @@
  * @LastEditors: sam.li
  * @email: minshen_li@163.com
  * @Date: 2021-05-07 02:23:44
- * @LastEditTime: 2021-05-12 17:50:29
+ * @LastEditTime: 2021-05-12 17:50:59
  * @motto: Still water run deep
  * @Description: Modify here please
  * @FilePath: \weap-taro\src\pages\home\views\index\index.tsx
@@ -17,9 +17,10 @@ import {
 } from '@tarojs/taro'
 
 import NavBar from '@/components/NavBar'
+import ClassMenus from '@/components/ClassMenus'
 
 import './index.scss'
-export default function HomeIndexPage () {
+export default function GoodsMenuPage () {
     return (
         <View className="app-wrap">
             <NavBar/>
@@ -29,8 +30,9 @@ export default function HomeIndexPage () {
                     scrollY={true}
                     scrollWithAnimation={true}
                 >
+                    <ClassMenus/>
                 </ScrollView>
             </View>
         </View>
-    )
+    )    
 }

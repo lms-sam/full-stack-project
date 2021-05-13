@@ -1,0 +1,29 @@
+.menus-container {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+
+    .left-menu {
+        width: 116px;
+        height: 100%;
+        background: #f5f5f5;
+        padding-right: 16px;
+    }
+
+    .right-menu {
+        flex: 1;
+        height: 100%;
+        background: #fff;
+    }
+
+    .menu-scroll-con {
+        height: 100%;
+    }
+
+    .tag-item {
+        font-size: 28px;
+        line-height: 100px;
+        text-align: center;
+        background: #fff;
+    }
+}
